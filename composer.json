@@ -1,0 +1,24 @@
+{
+    "name": "jankx/blocks",
+    "description": "Create blocks to embed to theme use Jankx Framework",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Puleeno Nguyen",
+            "email": "puleeno@gmail.com"
+        }
+    ],
+    "require": {
+        "jankx/core": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jankx\\Blocks\\": "src/"
+        },
+        "files": [
+            "./src/BlocksManager.php"
+        ]
+    }
+}
