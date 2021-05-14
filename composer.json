@@ -11,14 +11,11 @@
         }
     ],
     "require": {
-        "jankx/core": "dev-master"
+        "jankx/core": "*"
     },
     "autoload": {
         "psr-4": {
             "Jankx\\Blocks\\": "src/"
-        },
-        "files": [
-            "./src/BlocksManager.php"
-        ]
+        }
     }
 }
