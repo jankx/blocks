@@ -21,13 +21,20 @@ if (!class_exists(BlocksManager::class)) {
             /**
              * Create block closure for Jankx class
              */
-            $jankxInstance  = Jankx::getInstance();
+            $jankxInstance  = Jankx::instance();
             $blocksInstance = &$this;
-            $jankx->blocks  = function () use ($blocksInstance) {
+
+            $jankxInstance->blocks  = function () use ($blocksInstance) {
                 return $blocksInstance;
             };
+
+            $this->init_hooks();
+        }
+
+        protected function init_hooks()
+        {
+            $postType = new PostType();
+            add_action('init', array($postType, 'register_post_type'));
         }
     }
-
-    BlocksManager::getInstance();
 }
