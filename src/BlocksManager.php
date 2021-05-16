@@ -35,6 +35,10 @@ if (!class_exists(BlocksManager::class)) {
         {
             $postType = new PostType();
             add_action('init', array($postType, 'register_post_type'));
+            add_action(
+                'jankx_template_page_single_jankx_block',
+                'the_content'
+            );
         }
     }
 }
