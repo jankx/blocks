@@ -39,6 +39,18 @@ if (!class_exists(BlocksManager::class)) {
                 'jankx_template_page_single_jankx_block',
                 'the_content'
             );
+            add_filter(
+                'jankx_template_page_template_names',
+                array($this, 'filterBlockTemplates')
+            );
+        }
+
+        public function filterBlockTemplates($templates)
+        {
+            if (in_array('single-jankx_block', (array)$templates)) {
+                return 'single-blank';
+            }
+            return $templates;
         }
     }
 }
