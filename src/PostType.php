@@ -12,9 +12,16 @@ class PostType
             'add_new_item' => __('Add New Block', 'jankx'),
         );
 
-        register_post_type(static::BLOCK_POST_TYPE, apply_filters('jankx_blocks_post_type_args', array(
-            'public' => true,
-            'labels' => $labels,
-        )));
+        register_post_type(
+            static::BLOCK_POST_TYPE,
+            apply_filters(
+                'jankx_blocks_post_type_args',
+                array(
+                    'public' => true,
+                    'labels' => $labels,
+                    'menu_icon' => 'dashicons-block-default',
+                )
+            )
+        );
     }
 }
