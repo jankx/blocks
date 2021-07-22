@@ -35,9 +35,11 @@ if (!class_exists(BlocksManager::class)) {
         {
             $postType = new PostType();
             add_action('init', array($postType, 'register_post_type'));
-            add_action(
-                'jankx_template_page_single_jankx_block',
-                'the_content'
+            add_filter(
+                'jankx_template_page_pre_content',
+                array($this, 'renderBlockContent'),
+                10,
+                3
             );
             add_filter(
                 'jankx_template_page_template_names',
@@ -51,6 +53,13 @@ if (!class_exists(BlocksManager::class)) {
                 return 'single-blank';
             }
             return $templates;
+        }
+
+        public function renderBlockContent($pre, $context, $templates) {
+            if ('single' !== $context ) {
+                return $pre;
+            }
+            the_content();
         }
     }
 }
