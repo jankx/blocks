@@ -55,8 +55,9 @@ if (!class_exists(BlocksManager::class)) {
             return $templates;
         }
 
-        public function renderBlockContent($pre, $context, $templates) {
-            if ('single' !== $context ) {
+        public function renderBlockContent($pre, $context, $templates)
+        {
+            if ('single' !== $context) {
                 return $pre;
             }
             ob_start();
