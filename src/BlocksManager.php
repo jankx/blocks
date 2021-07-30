@@ -59,7 +59,11 @@ if (!class_exists(BlocksManager::class)) {
             if ('single' !== $context ) {
                 return $pre;
             }
-            return get_the_content();
+            ob_start();
+
+            the_content();
+
+            return ob_get_clean();
         }
     }
 }
