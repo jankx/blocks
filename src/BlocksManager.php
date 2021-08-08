@@ -57,7 +57,7 @@ if (!class_exists(BlocksManager::class)) {
 
         public function renderBlockContent($pre, $context, $templates)
         {
-            if ('single' !== $context) {
+            if (!in_array('single-jankx_block', (array)$templates)) {
                 return $pre;
             }
             ob_start();
