@@ -2,6 +2,7 @@
 namespace Jankx\Blocks;
 
 use Jankx;
+use Jankx\Blocks\WordPress\Widget;
 
 if (!class_exists(BlocksManager::class)) {
     class BlocksManager
@@ -45,6 +46,7 @@ if (!class_exists(BlocksManager::class)) {
                 'jankx_template_page_template_names',
                 array($this, 'filterBlockTemplates')
             );
+            add_action('widgets_init', array($this, 'registerWidget'));
         }
 
         public function filterBlockTemplates($templates)
@@ -65,6 +67,11 @@ if (!class_exists(BlocksManager::class)) {
             the_content();
 
             return ob_get_clean();
+        }
+
+        public function registerWidget()
+        {
+            register_widget(Widget::class);
         }
     }
 }
