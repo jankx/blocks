@@ -12,6 +12,8 @@ if (class_exists(BlocksManager::class)) {
 add_action('jankx_template_before_header', 'jankx_block_top_ads');
 function jankx_block_top_ads()
 {
-    $elementor = Elementor::instance();
-    echo $elementor->frontend->get_builder_content_for_display( 25 );
+    if (class_exists(Elementor::class)) {
+        $elementor = Elementor::instance();
+        echo $elementor->frontend->get_builder_content_for_display( 25 );
+    }
 }
