@@ -37,13 +37,13 @@ if (!class_exists(BlocksManager::class)) {
             $postType = new PostType();
             add_action('init', array($postType, 'register_post_type'));
             add_filter(
-                'jankx_template_page_pre_content',
+                'jankx/template/site/content/pre',
                 array($this, 'renderBlockContent'),
                 10,
                 3
             );
             add_filter(
-                'jankx_template_page_template_names',
+                'jankx/template/page/template_names',
                 array($this, 'filterBlockTemplates')
             );
             add_action('widgets_init', array($this, 'registerWidget'));
