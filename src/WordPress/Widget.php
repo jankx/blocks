@@ -64,7 +64,7 @@ class Widget extends WP_Widget
 
         if (class_exists(Plugin::class)) {
             $elementor = Plugin::instance();
-            if ($elementor->db->is_built_with_elementor($block->ID)) {
+            if ($elementor->documents->get($block->ID)->is_built_with_elementor()) {
                 echo $elementor->frontend->get_builder_content_for_display($block->ID);
 
                 echo $args['after_widget'];
